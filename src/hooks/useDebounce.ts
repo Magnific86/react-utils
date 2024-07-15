@@ -2,7 +2,7 @@ import { useEffect, useMemo } from "react"
 import { useEvent } from "./useEvent"
 
 export function debounce<T extends (...args: any[]) => any>(fn: T, ms: number) {
-  let timeoutId: number | null = null
+  let timeoutId: number | NodeJS.Timeout | null = null
 
   function debounced(...args: Parameters<T>) {
     if (typeof timeoutId === "number") {
